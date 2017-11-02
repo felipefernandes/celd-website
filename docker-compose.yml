@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  wpdb:
+    image: mysql:5.7
+    volumes:
+       - db-data:/var/lib/mysql
+    restart: always  
+    ports:
+      - 3316:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+
+  wordpress:
+    image: wordpress:4.8.3-php5.6-apache
+    container_name: celd-wp
+    depends_on:
+       - wpdb    
+    ports:
+      - 9001:80
+    restart: always
+    volumes:
+      - ./wp:/var/www/html
+    links:
+      - wpdb
+    environment:
+      WORDPRESS_DB_HOST: wpdb:3306       
+      WORDPRESS_DB_PASSWORD: somewordpress
+
+volumes:
+    db-data:
