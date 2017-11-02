@@ -1,0 +1,2 @@
+[18-Aug-2016 18:30:10 America/Chicago] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home3/celdomud/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17
+[31-Dec-2016 11:32:25 America/Chicago] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home3/celdomud/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17

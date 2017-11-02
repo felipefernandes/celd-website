@@ -1,0 +1,7 @@
+[27-Dec-2016 15:05:15 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home3/celdomud/public_html/wp-includes/registration-functions.php on line 7
+[29-Dec-2016 07:30:53 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home3/celdomud/public_html/wp-includes/registration-functions.php on line 7
+[30-Dec-2016 03:48:46 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home3/celdomud/public_html/wp-includes/registration-functions.php on line 7
+[03-Jan-2017 01:57:44 America/Chicago] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home3/celdomud/public_html/wp-includes/functions.php on line 8
+[03-Jan-2017 01:57:44 America/Chicago] PHP Warning:  require(ABSPATHWPINC/option.php): failed to open stream: No such file or directory in /home3/celdomud/public_html/wp-includes/functions.php on line 8
+[03-Jan-2017 01:57:44 America/Chicago] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/option.php' (include_path='.:/opt/php56/lib/php') in /home3/celdomud/public_html/wp-includes/functions.php on line 8
+[21-Mar-2017 06:29:09 America/Chicago] PHP Fatal error:  Call to undefined function _deprecated_file() in /home3/celdomud/public_html/wp-includes/registration-functions.php on line 7
