@@ -15,7 +15,9 @@ Obs.: Não testei no Windows, mas é possível usando VirtualBox ou o próprio D
 
 ## Instalação
 
-Execute o script `build.sh`, ele irá baixar e instanciar o container Wordpress, instalar o core do WP, tema e plugins necessários
+Execute o script `build.sh`, ele irá baixar e instanciar o container Wordpress, instalar o core do WP, tema e plugins necessários.
+Teste se tudo funcionou certinho usando o endereço `http://localhost:9001`
+Faça login no painel do Wordpress e importe o arquivo XML que está contido no diretório `/setup`
 
 ### Parando o container
 
