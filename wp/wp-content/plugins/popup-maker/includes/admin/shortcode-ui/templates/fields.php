@@ -7,17 +7,23 @@
 </script>
 
 <script type="text/html" id="tmpl-pum-field-wrapper">
-	<div class="pum-field pum-field-{{data.type}} {{data.id}}-wrapper {{data.classes}}">
-		<label for="{{data.id}}">{{data.label}}</label>
+	<div class="{{data.id}}-wrapper  {{data.classes}}">
+		<label for="{{data.id}} ">
+			{{data.label}}
+			<# if (data.doclink !== '') { #>
+				<a href="{{data.doclink}}" title="<?php _e( 'Documentation', 'popup-maker' ); ?>: {{data.label}}" target="_blank" class="pum-doclink dashicons dashicons-editor-help"></a>
+			<# } #>
+		</label>
 		{{{data.field}}}
-		<# if (data.desc) { #>
-		<p class="pum-desc desc">{{data.desc}}</p>
+
+		<# if (data.desc !== '') { #>
+		<p class="desc pum-desc">{{data.desc}}</p>
 		<# } #>
 	</div>
 </script>
 
 <script type="text/html" id="tmpl-pum-field-heading">
-	<h3 class="pum-field-heading">{{data.desc}}</h3>
+	<h3 class="pum-field-heading">{{data.label}}</h3>
 </script>
 
 <script type="text/html" id="tmpl-pum-field-text">
@@ -73,14 +79,10 @@
 </script>
 
 <script type="text/html" id="tmpl-pum-field-multicheck">
-	<ul class="pum-field-mulitcheck-list">
-		<# _.each(data.options, function(option, key) { #>
-		<li>
-			<input type="checkbox" id="{{data.id}}_{{key}}" name="{{data.name}}[{{option.value}}]" value="1" {{{option.meta}}}/>
-			<label for="{{data.id}}_{{key}}">{{option.label}}</label>
-		</li>
-		<# }); #>
-	</ul>
+    <# _.each(data.options, function(option, key) { #>
+        <input name="{{data.name}}[{{option.value}}]" id="{{data.id}}_{{key}}" type="checkbox" value="1" {{{option.meta}}} />&nbsp;
+        <label for="{{data.id}}_{{key}}">{{option.label}}</label><br/>
+    <# }); #>
 </script>
 
 <script type="text/html" id="tmpl-pum-field-rangeslider">

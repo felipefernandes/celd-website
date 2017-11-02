@@ -1,15 +1,19 @@
 <?php
 /**
+ * Text module
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_text' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text', 11 );
 
 function cf7bs_add_shortcode_text() {
-	wpcf7_add_shortcode( array(
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
+	$tags = array(
 		'text',
 		'text*',
 		'email',
@@ -18,11 +22,22 @@ function cf7bs_add_shortcode_text() {
 		'url*',
 		'tel',
 		'tel*',
-	), 'cf7bs_text_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		call_user_func( $remove_func, $tag );
+	}
+
+	$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? true : array(
+		'name-attr' => true,
+	);
+
+	call_user_func( $add_func, $tags, 'cf7bs_text_shortcode_handler', $features );
 }
 
 function cf7bs_text_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag_obj = new $classname( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';
@@ -78,6 +93,24 @@ function cf7bs_text_shortcode_handler( $tag ) {
 		$input_after = '';
 	}
 
+	$content = $tag_obj->content;
+
+	$matches = array();
+	if ( preg_match( '/\{input_before\}(.*)\{\/input_before\}/imU', $content, $matches ) ) {
+		if ( ! empty( $matches[1] ) ) {
+			$input_before = $matches[1];
+		}
+		$content = str_replace( $matches[0], '', $content );
+	}
+
+	$matches = array();
+	if ( preg_match( '/\{input_after\}(.*)\{\/input_after\}/imU', $content, $matches ) ) {
+		if ( ! empty( $matches[1] ) ) {
+			$input_after = $matches[1];
+		}
+		$content = str_replace( $matches[0], '', $content );
+	}
+
 	if ( $tag_obj->has_option( 'include_count' ) ) {
 		$count_mode = 'input_after';
 		$count_down = false;
@@ -101,10 +134,12 @@ function cf7bs_text_shortcode_handler( $tag ) {
 
 		$tag = cf7bs_text_to_count( $tag, $count_down );
 
+		$handler_func = function_exists( 'wpcf7_count_form_tag_handler' ) ? 'wpcf7_count_form_tag_handler' : 'wpcf7_count_shortcode_handler';
+
 		if ( ! empty( $$count_mode ) ) {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag ) . ' ' . $$count_mode;
+			$$count_mode = call_user_func( $handler_func, $tag ) . ' ' . $$count_mode;
 		} else {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag );
+			$$count_mode = call_user_func( $handler_func, $tag );
 		}
 	}
 
@@ -115,13 +150,13 @@ function cf7bs_text_shortcode_handler( $tag ) {
 		'type'				=> wpcf7_support_html5() ? $tag_obj->basetype : 'text',
 		'value'				=> $value,
 		'placeholder'		=> $placeholder,
-		'label'				=> $tag_obj->content,
+		'label'				=> $content,
 		'help_text'			=> $validation_error,
-		'size'				=> cf7bs_get_form_property( 'size' ),
-		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns' ),
-		'form_layout'		=> cf7bs_get_form_property( 'layout' ),
-		'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
-		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),
+		'size'				=> cf7bs_get_form_property( 'size', 0, $tag_obj ),
+		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag_obj ),
+		'form_layout'		=> cf7bs_get_form_property( 'layout', 0, $tag_obj ),
+		'form_label_width'	=> cf7bs_get_form_property( 'label_width', 0, $tag_obj ),
+		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint', 0, $tag_obj ),
 		'mode'				=> $mode,
 		'status'			=> $status,
 		'readonly'			=> $tag_obj->has_option( 'readonly' ) ? true : false,
@@ -129,6 +164,7 @@ function cf7bs_text_shortcode_handler( $tag ) {
 		'maxlength'			=> $tag_obj->get_maxlength_option(),
 		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag_obj->name,
+		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
 		'input_before'		=> $input_before,
 		'input_after'		=> $input_after,
 	), $tag_obj->basetype, $tag_obj->name ) );
@@ -139,12 +175,15 @@ function cf7bs_text_shortcode_handler( $tag ) {
 }
 
 function cf7bs_text_to_count( $tag, $count_down = false ) {
-	$tag['type'] = 'count';
-	$tag['basetype'] = 'count';
-	$tag['options'] = array();
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+	$tag_obj = new $classname( $tag );
+
+	$tag_obj->type = 'count';
+	$tag_obj->basetype = 'count';
+	$tag_obj->options = array();
 
 	if ( $count_down ) {
-		$tag['options'][] = 'down';
+		$tag_obj->options[] = 'down';
 	}
 
 	return $tag;

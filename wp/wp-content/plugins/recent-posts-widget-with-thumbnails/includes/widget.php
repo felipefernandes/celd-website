@@ -1,9 +1,25 @@
+<?php echo $args[ 'before_widget' ]; ?>
 <div id="rpwwt-<?php echo $args[ 'widget_id' ];?>" class="rpwwt-widget">
-	<?php echo $before_widget; ?>
-	<?php if ( $title ) echo $before_title . $title . $after_title; ?>
+	<?php if ( $title ) echo $args[ 'before_title' ] . $title . $args[ 'after_title' ]; ?>
 	<ul>
 	<?php while ( $r->have_posts() ) : $r->the_post(); ?>
-		<li<?php if ( is_sticky() ) { ?> class="rpwwt-sticky"<?php } ?>><a href="<?php the_permalink(); ?>"><?php 
+		<li<?php 
+			$classes = array();
+			if ( is_sticky() ) { 
+				$classes[] = 'rpwwt-sticky';
+			}
+			if ( $print_post_categories ) {
+				$cats = get_the_category();
+				if ( is_array( $cats ) and $cats ) {
+					foreach ( $cats as $cat ) {
+						$classes[] = $cat->slug;
+					}
+				}
+			}
+			if ( $classes ) {
+				echo ' class="', join( ' ', $classes ), '"';
+			}
+			?>><a href="<?php the_permalink(); ?>"<?php echo $link_target; ?>><?php 
 			if ( $show_thumb ) : 
 				$is_thumb = false;
 				// if only first image
@@ -11,14 +27,12 @@
 					// try to find and to display the first post image and to return success
 					$is_thumb = $this->the_first_post_image();
 				else :
-					// else 
 					// look for featured image
 					if ( has_post_thumbnail() ) : 
-						// if there is featured image then show featured image
-						echo wp_get_attachment_image( get_post_thumbnail_id(), $this->current_thumb_dimensions ); // use wp_get_attachment_image() instead to have the same behaviour as in $this->the_first_post_image()
+						// if there is featured image then show it
+						the_post_thumbnail( $this->current_thumb_dimensions );
 						$is_thumb = true;
 					else :
-						// else 
 						// if user wishes first image trial
 						if ( $try_1st_img ) :
 							// try to find and to display the first post image and to return success
@@ -30,7 +44,7 @@
 				if ( ! $is_thumb ) :
 					// if user allows default image then
 					if ( $use_default ) :
-						print $default_img;
+						echo $default_img;
 					endif; // use_default
 				endif; // not is_thumb
 				// (else do nothing)
@@ -50,12 +64,13 @@
 				?><div class="rpwwt-post-date"><?php echo get_the_date(); ?></div><?php 
 			endif;
 			if ( $show_excerpt ) : 
-				?><div class="rpwwt-post-excerpt"><?php echo $this->get_the_trimmed_excerpt( $excerpt_length, $excerpt_more ); ?></div><?php 
+				?><div class="rpwwt-post-excerpt"><?php echo $this->get_the_trimmed_excerpt( $excerpt_length, $excerpt_more, $ignore_excerpt, $set_more_as_link ); ?></div><?php 
 			endif;
 			if ( $show_comments_number ) : 
 				?><div class="rpwwt-post-comments-number"><?php echo get_comments_number_text(); ?></div><?php 
-			endif; ?></li>
+			endif; 
+		?></li>
 	<?php endwhile; ?>
 	</ul>
-	<?php echo $after_widget; ?>
-</div>
+</div><!-- .rpwwt-widget -->
+<?php echo $args[ 'after_widget' ]; ?>

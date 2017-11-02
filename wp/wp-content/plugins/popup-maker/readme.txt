@@ -1,29 +1,33 @@
-=== Popup Maker ===
-Contributors: danieliser, wppopupmaker, waltmesser
-Author URI: https://wppopupmaker.com/?utm_source=WordPress+Page&utm_medium=Readme+Link&utm_campaign=Author+URI
-Plugin URI: https://wppopupmaker.com/?utm_source=WordPress+Page&utm_medium=Readme+Link&utm_campaign=Plugin+URI
-Donate link: 
-Tags: responsive popup, promotion, popover, pop-up, pop over, marketing, lightbox, advertising, conversion, modal, popup, popups
+=== Popup Maker™ - Best Rated ===
+Contributors: danieliser, wppopupmaker, waltmesser, yogaman5020
+Author URI: https://wppopupmaker.com/?utm_source=readme-header&utm_campaign=Readme&utm_medium=author-uri
+Plugin URI: https://wppopupmaker.com/?utm_capmaign=Readme&utm_source=readme-header&utm_medium=plugin-uri
+Donate link:
+Tags: marketing, optin, advertising, responsive popups, promotion, popover, pop-up, pop over, lightbox, conversion, modal, popup, popups
 Requires at least: 3.6
-Tested up to: 4.7
-Stable tag: 1.4.21
+Tested up to: 4.8
+Stable tag: 1.6.6
 License: GNU Version 3 or Any Later Version
 
 Create any popup imaginable! Customize your popups from head-to-toe and give your site more utility, usability, and conversions.
 
 == Description ==
 
-Popup Maker is the most advanced and versatile popup, modal and content overlay plugin available on WordPress.
+= Best WordPress Popup Plugin =
+
+Popup Maker™ is the **best popup plugin WordPress** has to offer. It is extremely versatile & flexible. Bend it to create any type of modal or content overlay for your WordPress website.
 
 Customize every facet of your popups, from theme and position, to targeting and cookies.
 
-Learn tips and tricks, and create cool popups using guides found on our [Blog](https://wppopupmaker.com/blog/)!
+Easily create [EU cookie notices](https://ninjaforms.com/eu-cookie-notices-ninja-forms/), optin popups, slide-ins, modal forms & more.
+
+Learn tips and tricks, and create cool popups using guides found on our [Blog](https://wppopupmaker.com/blog/?utm_campaign=Reamde&utm_source=readme-description&utm_medium=text-link)!
 
 https://www.youtube.com/watch?v=MAf85_oax4g
 
-Follow this plugin on [GitHub](https://github.com/PopupMaker/Popup-Maker and [Twitter](https://twitter.com/wppopupmaker)!
+Follow this plugin on [GitHub](https://github.com/PopupMaker/Popup-Maker) and [Twitter](https://twitter.com/wppopupmaker)!
 
-Would you like to help translate the plugin into more languages? [Join our WP-Translations Community](https://translate.wordpress.org/projects/wp-plugins/popup-maker).
+Would you like to help translate the **best wordpress popup plugin** into more languages? [Join our WP-Translations Community](https://translate.wordpress.org/projects/wp-plugins/popup-maker).
 
 = What's Included for Free: =
 > + The plugin has limitless potential with no artificial restrictions. If you can’t get the functionality you’re after, we’ll be happy to help you! Just ask on the [Support Forums](https://wordpress.org/support/plugin/popup-maker).
@@ -41,28 +45,28 @@ Would you like to help translate the plugin into more languages? [Join our WP-Tr
 > + Trove of options to customize the look of your popup using our unique **Theme Editor**. Change colors, shadows, fonts, paddings, and much, much more.
 > + Stat tracking: Popup Opens Count.
 
-If you are enjoying this wonderful project, [please rate & review it](https://wppopupmaker.com/rate-us?utm_source=WordPress+Page&utm_medium=Review+Link&utm_campaign=Review+It) to share the love <3!
+If you are enjoying this wonderful project, [please rate & review it](https://wppopupmaker.com/rate-us/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Readme&utm_content=rate-us) to share the love <3!
 
-= Enhance Your Popups Using Our Extensions =
-> + [Exit Intent](https://wppopupmaker.com/extensions/exit-intent?utm_source=WordPress+Page&utm_medium=Extensions+Link&utm_campaign=Exit+Intent "Exit Intent")
-> + [AJAX Login Modals](https://wppopupmaker.com/extensions/ajax-login-modals?utm_source=WordPress+Page&utm_medium=Extensions+Link&utm_campaign=AJAX+Login+Modals "AJAX Login Modals")
-> + [Age Verification Modals](https://wppopupmaker.com/extensions/age-verification-modals?utm_source=WordPress+Page&utm_medium=Extensions+Link&utm_campaign=Age+Verification+Modals "Age Verification Modals")
-> + [Popup Analytics](https://wppopupmaker.com/extensions/popup-analytics?utm_source=WordPress+Page&utm_medium=Extensions+Link&utm_campaign=Popup+Analytics "Popup Analytics")
-> + [Advanced Targeting Conditions](https://wppopupmaker.com/extensions/advanced-targeting-conditions?utm_source=WordPress+Page&utm_medium=Extensions+Link&utm_campaign=Advanced+Targeting+Conditions "Advanced Targeting Conditions")
+= Enhance Your WordPress Popups Using Our Extensions =
+> + [Exit Intent](https://wppopupmaker.com/extensions/exit-intent/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Upsell&utm_content=exit-intent "Exit Intent")
+> + [AJAX Login Modals](https://wppopupmaker.com/extensions/ajax-login-modals/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Upsell&utm_content=ajax-login-modal "AJAX Login Modals")
+> + [Age Verification Modals](https://wppopupmaker.com/extensions/age-verification-modals/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Upsell&utm_content=age-verification-modals "Age Verification Modals") - Verify the age of your users before allowing them to view pages or click buttons/links.
+> + [Popup Analytics](https://wppopupmaker.com/extensions/popup-analytics/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Upsell&utm_content=popup-analytics "Popup Analytics")
+> + [Advanced Targeting Conditions](https://wppopupmaker.com/extensions/advanced-targeting-conditions/?utm_source=readme-description&utm_medium=text-link&utm_campaign=Upsell&utm_content=advanced-targeting-conditions "Advanced Targeting Conditions")
 
 == Frequently Asked Questions ==
 
 = Where is your documentation? =
-Our documentation is located [here](http://docs.wppopupmaker.com/)
+Our documentation is located [here](http://docs.wppopupmaker.com?utm_medium=text-doclink&utm_campaign=Readme&utm_source=readme-faq&utm_content=where-are-docs)
 
 = How do I open a popup? =
-Using [Triggers](http://docs.wppopupmaker.com/article/141-triggers-cookies)
+Using [Triggers](http://docs.wppopupmaker.com/article/141-triggers-cookies?utm_medium=text-doclink&utm_campaign=Readme&utm_source=readme-faq&utm_content=open-a-popup)
 
 = How do I stop popups from opening repeatedly? =
-Using [Cookies](http://docs.wppopupmaker.com/article/148-cookies)
+Using [Cookies](http://docs.wppopupmaker.com/article/148-cookies?utm_medium=text-doclink&utm_campaign=Readme&utm_source=readme-faq&utm_content=stop-opening-repeatedly)
 
 = What do I do if I just want a popup to show on a certain page/post/etc? =
-Check out [Conditions](http://docs.wppopupmaker.com/article/140-conditions)
+Check out [Conditions](http://docs.wppopupmaker.com/article/140-conditions?utm_medium=text-doclink&utm_campaign=Readme&utm_source=readme-faq&utm_content=target-certain-pages)
 
 = Why aren't my popups opening/working? =
 
@@ -87,6 +91,117 @@ There are several common causes for this which include:
 
 == Changelog ==
 
+= v1.6.6 - 07/29/2017 =
+* Fix: Bug with closing forms using newest version of Gravity Forms.
+
+= v1.6.5 - 07/16/2017 =
+* Tweak: Added new popup class for theme names. Thanks @bluantinoo.
+* Fix: Bug in menu popups save and render functionality not working correctly.
+* Fix: Finally found issue where randomly assets tab checkboxes wouldn't uncheck & save properly.
+* Fix: Sanitized active tab key against whitelist.
+* Fix: Errors in w3c validation scans from form meta fields.
+* Fix: Settings asset label mismatch.
+
+= v1.6.4 - 07/07/2017 =
+* Imporvement: Reworked all form integrations to be as DRY as possible making it more reliable.
+* Tweak: Added sanity check in case previous filter mucks up the $item object variable in menu item filters causing warnings.
+* Tweak: Disabled the open count & sorting when Popup Analytics is activated.
+* Tweak: Added NF datepicker CSS fix.
+* Tweak: Added media type to head styles to force optimization plugins to keep them in order.
+* Tweak: Reverted to older method of click trigger assignment to better work with multiple popups on one trigger with conditions.
+* Fix: Bug caused by use of a function some users host blocked.
+* Fix: Bug caused by debug mode being enabled with a form success cookie.
+* Fix: Bug when Gravity Form was not in popup but triggered a thank you popup.
+* Fix: Bug with GForms closing popup after submission.
+* Fix: Bug where CF7 Forms with required fields trigger popup to close without being filled properly.
+
+= v1.6.3 - 05/19/2017 =
+* Fix: Removed 3rd parameter from number_format as it only accepts 1, 2 or 4 arguments, not 3 per php.net documentation.
+
+= v1.6.2 - 05/18/2017 =
+* Fix: Bug caused by rounding to whole numbers in opacity values.
+
+= v1.6.1 - 05/17/2017 =
+* Improvement: Major improvements to the Shortcode UI (builder & in editor previews). Now supports true live rendering of PM shortcodes. This will be most apparent in upcoming extension updates.
+* Fix: Forced decimal formatting in CSS output functions in case of locale changes to formatting. Fix thanks to @timhavinga
+
+
+= v1.6.0 - 04/26/2017 =
+* Feature: Added Gravity Forms direct integrations.
+  * Close popup with delay when Gravity Form is submitted.
+  * Trigger a thank you popup when Gravity Form is submitted.
+  * Set cookies easily when the Gravity Form is in a popup.
+* Feature: Added Contact Form 7 (CF7) direct integrations.
+  * Close popup with delay when contact form 7 is submitted.
+  * Trigger a thank you popup when contact form 7 is submitted.
+  * Set cookies easily when the CF7 form is in a popup.
+  * Forced CF7 assets to load when used in a popup on the off chance they don't automatically.
+* Tweak: Increased action priority for condition registration in case plugins register post types late, such as PODs.
+* Tweak: Moved popup theme styles to a very late position in the head to prevent them from being overwritten when minifying CSS.
+* Fix: Bug where you couldn't enter values higher than the rangeslider max.
+* Fix: JS error when creating a cookie before a trigger exists.
+
+= v1.5.8 - 04/04/2017 =
+* Fix: Error when extensions were active due to null values for checkboxes.
+
+
+= v1.5.7 - 03/27/2017 =
+* Improvement: Added option to disable the menu editors in case of a conflict.
+* Fix: Forced 100% width on page select boxes to prevent them from being too small.
+* Fix: Bug where checkboxes were not staying checked.
+
+= v1.5.6 - 03/16/2017 =
+* Feature: Admin Bar helper tool to assist in getting proper click trigger selectors easily.
+* Improvement: Further tweaks for maximium compatibitlity with nav menu editor.
+* Improvement: Added Popup option to nav menu editor Screen Options to easily hide them.
+* Fix: Updated the freemius-sdk to fix an obscure secured php core function error.
+
+= v1.5.5 - 03/13/2017 =
+* Improvment: Used generic Nav Menu Editor Walker classes for better support. This should remove the notices from other plugins as well.
+* Fix: Bug that causes click triggers to lag.
+
+= v1.5.4 - 03/13/2017 =
+* Fix: Typos in conditions.
+* Fix: Moved class_exists checks to better handle possible missing class errors.
+
+= v1.5.3 - 03/13/2017 =
+* Improvement: Added a catch for any triggers not initialized at page load.
+* Fix: Typo in multi check field template that led to admin JS errors.
+
+= v1.5.2 - 03/10/2017 =
+* Improvement: Added option to disable the admin bar Popups helper menu item.
+* Improvement: Simplified the nav menu editor modification class to reduce un-needed translation strings.
+* Fix: Added check for missing class in the nav menu editor walker classes.
+
+= v1.5.1 - 03/09/2017 =
+* Fix: PHP 5.2 Compatibility issue.
+
+= v1.5.0 - 03/08/2017 =
+* Feature: Position popups based on the click trigger. Tooltips & Popovers are now possible.
+* Feature: Added new conditions for targeting children & grandchildren / ancestors of selected content.
+* Feature: Added new settings to the Nav Menu editor to choose a popup that a menu item will trigger.
+* Feature: Addded option to Disable on Tablets as well as mobile phones.
+* Feature: Added WooCommerce is_wc_endpoint_url conditions.
+* Feature: Added new click selector presets for quicker targeting & more user friendly.
+* Feature: Added a new debug mode. Including:
+  * Admin Bar with manual open, close & cookie resets for loaded popups.
+* Improvement: New global JS functions for easily working with popups. PUM.open(123), PUM.close(123), PUM.clearCookies(123).
+* Improvement: Added inline links to docs for various settings.
+* Improvement: Reworked popup analytics to improving response times and decreasing server loads.
+  * Moved Analytic tracking to the WP-API with a new endpoint.
+  * Reduced number of queries by 75% for analytics tracking.
+  * Added option to disable it entirely if absolutely neccessary.
+* Improvement: Many improvements to JavaScript including object caching.
+* Tweak: Creating a new trigger will automatically create a cookie and assign it if one doesn't exist.
+* Tweak: Mobile Disable was also applied to tablets, now only to phones.
+* Tweak: Removed readonly from rangesliders to make the fact you can manually enter any value more intuitive.
+* Tweak: Use CSS to display a popup immediately if has trigger: auto open: delay 0.
+* Tweak: Clicking elements in the visual theme preview will now scroll to the relevant section of settings.
+* Fix: Bug in admin when editing a trigger, cookie field didn't repopulate properly.
+* Fix: Bug where rangeslider values can be set to strings.
+* Fix: Bug where links in the close button were not triggered even when do_default was enabled.
+* Fix: Bug with scrollbar "flashing" when popup opens.
+
 = v1.4.21 - 12/12/2016 =
 * Feature: Added option to disable popup on mobile to comply with [Google's new interstital policy](https://webmasters.googleblog.com/2016/08/helping-users-easily-access-content-on.html).
 * Tweak: Added additional paramter to the pum_popup_get_conditions filter.
@@ -94,8 +209,8 @@ There are several common causes for this which include:
 * Tweak: Added CSS override for Ninja Forms datepickers to properly layer them above popups.
 
 = v1.4.20 - 10/13/2016 =
-* Feature: Added [Ninja Forms](https://wppopupmaker.com/go/ninjaforms) success actions for opening & closing popups.
-* Feature: Added new cookie event for successful submission of a [Ninja Forms](https://wppopupmaker.com/go/ninjaforms) form.
+* Feature: Added [Ninja Forms](https://wppopupmaker.com/grab/ninjaforms?utm_source=readme-changelog&utm_medium=text-link&utm_campaign=Readme&utm_content=ninja-forms-features) success actions for opening & closing popups.
+* Feature: Added new cookie event for successful submission of a [Ninja Forms](https://wppopupmaker.com/grab/ninjaforms) form.
 * Improvement: Added wp.hooks JS library, allowing actions & filters via our plugin JS.
 * Tweaks: Added various admin css tweaks.
 

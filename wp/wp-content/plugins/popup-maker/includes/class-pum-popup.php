@@ -35,6 +35,12 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 		public $conditions = null;
 
 		/**
+		 * @var array
+		 */
+		public $conditions_filtered = array();
+
+
+		/**
 		 * @var null
 		 */
 		public $display = null;
@@ -161,6 +167,7 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 					'pum',
 					'pum-overlay',
 					'pum-theme-' . $this->get_theme_id(),
+					'pum-theme-' . get_post_field( 'post_name', $this->get_theme_id() ),
 					'popmake-overlay', // Backward Compatibility
 				),
 				'container' => array(
@@ -207,9 +214,9 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 			}
 
 			// Add a class for each trigger type.
-			foreach ( $this->get_triggers() as $trigger => $trigger_settings ) {
-				if ( ! in_array( $trigger, $classes['overlay'] ) ) {
-					$classes['overlay'][] = $trigger;
+			foreach ( $this->get_triggers() as $trigger ) {
+				if ( ! in_array( $trigger['type'], $classes['overlay'] ) ) {
+					$classes['overlay'][] = $trigger['type'];
 				}
 			}
 
@@ -232,7 +239,7 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 		}
 
 		/**
-		 * @return mixed|void
+		 * @return array
 		 */
 		function get_cookies() {
 			if ( ! $this->cookies ) {
@@ -247,7 +254,7 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 		}
 
 		/**
-		 * @return mixed|void
+		 * @return array
 		 */
 		function get_triggers() {
 			if ( ! $this->triggers ) {
@@ -363,6 +370,7 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 					'cookies'         => $this->get_cookies(),
 					'triggers'        => $this->get_triggers(),
 					'mobile_disabled' => $this->mobile_disabled() ? true : null,
+					'tablet_disabled' => $this->tablet_disabled() ? true : null,
 					'meta'            => array(
 						'display'    => $this->get_display(),
 						'close'      => $this->get_close(),
@@ -386,7 +394,7 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 
 		/**
 		 * Returns the close button text.
-		 * @return mixed|void
+		 * @return string
 		 */
 		public function close_text() {
 			$text = '&#215;';
@@ -427,19 +435,28 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 		public function mobile_disabled() {
 			$mobile_disabled = $this->get_meta( 'popup_mobile_disabled', true );
 
-			return (bool) $mobile_disabled;
+			return (bool) apply_filters( 'pum_popup_mobile_disabled', $mobile_disabled, $this->ID );
+		}
+
+		public function tablet_disabled() {
+			$tablet_disabled = $this->get_meta( 'popup_tablet_disabled', true );
+
+			return (bool) apply_filters( 'pum_popup_tablet_disabled', $tablet_disabled, $this->ID );
 		}
 
 		/**
-		 * @return mixed|void
+		 * @param array $filters
+		 *
+		 * @return array
 		 */
-		function get_conditions( $filters = array() ) {
+		public function get_conditions( $filters = array() ) {
 
 			$filters = wp_parse_args( $filters, array(
 				'php_only' => null,
 				'js_only'  => null,
 			) );
 
+			$cache_key = hash( 'md5', json_encode( $filters ) );
 
 			if ( ! $this->conditions ) {
 				$this->conditions = get_post_meta( $this->ID, 'popup_conditions', true );
@@ -449,25 +466,41 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 				}
 			}
 
-			$conditions = $this->conditions;
+			// Check if these exclusion filters have already been applied and prevent extra processing.
+			$conditions = isset( $this->conditions_filtered[ $cache_key ] ) ? $this->conditions_filtered[ $cache_key ] : false;
 
-			// Sanity Check on the values not operand value.
-			foreach ( $conditions as $group_key => $group ) {
+			if ( ! $conditions ) {
+				$conditions = $this->conditions;
+				// Sanity Check on the values not operand value.
+				foreach ( $conditions as $group_key => $group ) {
 
-				foreach ( $group as $key => $condition ) {
+					foreach ( $group as $key => $condition ) {
 
-					if ( $this->exclude_condition( $condition, $filters ) ) {
-						unset( $conditions[ $group_key ][ $key ] );
-						if ( empty( $conditions[ $group_key ] ) ) {
-							unset( $conditions[ $group_key ] );
-							break;
+						if ( $this->exclude_condition( $condition, $filters ) ) {
+							unset( $conditions[ $group_key ][ $key ] );
+							if ( empty( $conditions[ $group_key ] ) ) {
+								unset( $conditions[ $group_key ] );
+								break;
+							}
+							continue;
 						}
-						continue;
+
+						$conditions[ $group_key ][ $key ] = $this->parse_condition( $condition );
 					}
 
-					$conditions[ $group_key ][ $key ] = $this->parse_condition( $condition );
+					if ( ! empty( $conditions[ $group_key ] ) ) {
+						// Renumber each subarray.
+						$conditions[ $group_key ] = array_values( $conditions[ $group_key ] );
+					}
+
 				}
+
+				// Renumber top arrays.
+				$conditions = array_values( $conditions );
+
+				$this->conditions_filtered[ $cache_key ] = $conditions;
 			}
+
 
 			return apply_filters( 'pum_popup_get_conditions', $conditions, $this->ID, $filters );
 		}
@@ -508,7 +541,9 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 		}
 
 		/**
-		 * @return mixed|void
+		 * @param array $filters
+		 *
+		 * @return bool
 		 */
 		public function has_conditions( $filters = array() ) {
 			return boolval( count( $this->get_conditions( $filters ) ) );
@@ -601,7 +636,6 @@ if ( ! class_exists( 'PUM_Popup' ) ) {
 
 			return 0;
 		}
-
 
 		public function increase_open_count() {
 
