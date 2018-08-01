@@ -1,0 +1,15 @@
+{
+  "name": "celd_temporario",
+  "version": "1.0.0",
+  "title": "CELD - Centro Espírita Léon Denis",
+  "homepage": "http://www.celd.org.br",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ng-annotate": "^1.0.1"
+  }
+}
