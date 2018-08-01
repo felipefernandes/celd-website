@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
      // configurações das tasks
      less: {
-       'assets/css/main.css': 'builds/css-less/main.less'
+       'assets/css/main.css': 'builds/less/main.less'
      }, //less
 
      ngAnnotate: {
@@ -37,12 +37,7 @@ module.exports = function(grunt) {
 
       concat: {
         dist: {
-            src: ["builds/js/**/*",
-                  "builds/angular/angular.min.js",
-                  "builds/angular-auto-validate/dist/jcs-autovalidate.min.js",
-                  "builds/bootstrap/dist/js/bootstrap.min.js",
-                  "builds/jquery/dist/jquery.min.js",
-                  "builds/less/dist/less.min.js"]
+            src: "builds/js/**/*"
           , dest: "assets/js/main.js"
         }
       },
