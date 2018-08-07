@@ -1,0 +1,72 @@
+/**
+ * main.scss
+
+ todo:
+    adicionar
+        - cssmin
+        - uglyfy para js
+        - copy para dist folder
+ */
+body {
+  background-color: #FFFDED; }
+
+/* Elements */
+.header {
+  background: #4CB2C4 url(../images/abstract-polygon-texture-281.jpg) top center;
+  background-size: cover;
+  padding: 10px 6px;
+  color: #303030; }
+  .header h1 {
+    margin: 0;
+    padding: 0;
+    background: url(../images/celd-logo-transp-500px.png) no-repeat top left;
+    background-size: contain;
+    display: block;
+    height: 173px;
+    text-indent: -9999px; }
+  .header .badge {
+    text-align: left;
+    padding: 8px;
+    width: 100%; }
+  .header .notification-area span {
+    font-size: 16px;
+    font-weight: normal; }
+
+.bar {
+  padding: 10px 20px;
+  text-align: right; }
+
+.main {
+  padding: 30px 20px 50px; }
+  .main .banners {
+    padding-top: 24px; }
+    .main .banners .banner {
+      display: block;
+      width: 100%;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease; }
+    .main .banners .agenda {
+      background-color: #4CB2C4;
+      color: white;
+      padding: 16px 24px;
+      font-size: 14px; }
+      .main .banners .agenda::hover {
+        background-color: #41828d;
+        color: white;
+        text-decoration: none; }
+      .main .banners .agenda span {
+        font-size: 24px;
+        font-weight: bold;
+        display: block; }
+
+.footer {
+  padding: 40px 18px 50px;
+  background-color: #124357;
+  color: white; }
+  .footer address {
+    font-size: 12px; }
+  .footer #ytplayer {
+    min-height: 400px; }
+
+/*# sourceMappingURL=main.css.map */

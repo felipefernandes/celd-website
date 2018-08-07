@@ -1,24 +1,17 @@
 {
-  "name": "CELD",
-  "homepage": "https://github.com/felipefernandes/freela-base",
+  "name": "celd-temporario",
+  "description": "Simple Grunt boilerplate for frontend workflow",
+  "main": "index.html",
   "authors": [
     "Felipe Fernandes <felipefernandesweb@gmail.com>"
   ],
-  "description": "Centro Espírita Léon Denis",
-  "main": "",
-  "moduleType": [],
   "license": "MIT",
+  "homepage": "http://www.celd.org.br",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "^3.3.6",
-    "less": "^2.6.0",
-    "angular": "^1.5.0",
-    "angular-auto-validate": "^1.19.3"
-  }
+  ]
 }
