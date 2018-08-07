@@ -21,17 +21,16 @@ module.exports = function(grunt) {
         }, //uglify
 
         cssmin: {
-            options: {
-              shorthandCompacting: false,
-              roundingPrecision: -1,
-              ext: 'min.css'
-            },
             target: {
-              files: {
-                'assets/css/main.css': 'assets/css/main.css'
-              }
-            }
-          }, //cssmin
+              files: [{
+                  expand: true,
+                  cwd: 'src/styles',
+                  src: ['*.css', '!*.min.css'],
+                  dest: 'assets/css',
+                  ext: '.min.css'
+              }]
+            },
+        }, //cssmin
 
         concat: {
             dist: {
